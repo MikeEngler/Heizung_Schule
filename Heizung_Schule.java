@@ -11,6 +11,7 @@ import java.util.Arrays;
 public class Main extends JFrame{
 
 	
+	
 // wtf ever
 private static final long serialVersionUID = 1L;
 
