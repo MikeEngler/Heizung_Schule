@@ -16,6 +16,7 @@ private static final long serialVersionUID = 1L;
 
 
 
+
 /** main*/
 	public static void main(final String[] args) {
 		new EasyWindow();
