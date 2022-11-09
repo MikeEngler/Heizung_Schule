@@ -25,8 +25,6 @@ public class Main extends JFrame{
 		window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
 		
-		
-		
 		JPanel aussenrahmen = new JPanel();
 		aussenrahmen.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 5));
 		
