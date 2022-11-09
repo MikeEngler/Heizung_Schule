@@ -22,7 +22,7 @@ private static final long serialVersionUID = 1L;
 	}
 	
 	
-	//Konstruktor
+	//Konstruktor für das Anwendungsfenster
 	public EasyWindow() 
 	{
 		super("easy window");
@@ -34,12 +34,13 @@ private static final long serialVersionUID = 1L;
 		}});
 	
 
-	
+	// Container für was auch immer
 		Container con = getContentPane();
 		
 	//	GridLayout layout = new GridLayout(0, 2);
 		JPanel rahmen = new JPanel(new GridLayout(0,1));
 		
+	// Label für die Textfelder
 		JLabel label1 = new JLabel("KNr.: ");
 		JLabel label2 = new JLabel("Hausnr.: ");
 		JLabel label3 = new JLabel("Wohnungsnr.: ");
@@ -47,6 +48,8 @@ private static final long serialVersionUID = 1L;
 		JLabel label5 = new JLabel("Zählernummer: ");
 		JLabel label6 = new JLabel("Ablesedatum: ");
 		JLabel label7 = new JLabel("Messwerte: ");
+		
+	// Textfelder zur Eingabe der Daten
 		JTextField text1 = new JTextField();
 		JTextField text2 = new JTextField();
 		JTextField text3 = new JTextField();
@@ -57,8 +60,10 @@ private static final long serialVersionUID = 1L;
 	
 	      
 
-		
+// Eindimensionaler Array zum füllend er Tabelle		
 	    String[] title = {"Kundennummer", "Hausnummer", "Wohnungsnummer", "Zählerart", "Ablesedatum", "Messwerte"};
+
+// Multidimensionaler Array für den inhalt der Tabelle bzw seiner Daten	    
 	    String[][] data = {
 	    		
 	    		{"sjadk", "sjfdsk", "kjsd"},
@@ -66,16 +71,29 @@ private static final long serialVersionUID = 1L;
 	    		{"sdfjks", "sdjfchvsj", "jdsfkdfj"}
 	    };	
 		
-		JPanel p1 = new JPanel(new GridLayout(0,2));
-		JScrollPane p2 = new JScrollPane();
 		
-		JButton btn = new JButton("Datensatz löschen");
+	    // JPanel wird erstellt um als Rahmen für die Labels und Textfelder zu dienen
+	    JPanel p1 = new JPanel(new GridLayout(0,2));
 		
+	    // JScrollPane wird erstellt um als Rahmen für die Tabelle zu dienen
+	    JScrollPane p2 = new JScrollPane();
 		
+		// noch funktionsloser Button welcher später die eingetargen Daten aus der Tabelle entfernen soll
+	    JButton btn = new JButton("Datensatz löschen");
+		
+		// JTable Tabelle wird erstellt und mit den String Arrays  title und data gefüttert
 		JTable table = new JTable(data, title);
 		
+		//----------------- Test für neue Tabelle -----------------
 		
 		
+		
+		
+		
+		//--------------------------------------------------------
+		
+		
+		// Textfelder und dazugehörige Label werden in das JPanel p1 hinuzgefügt
 		p1.add(label1);
 		p1.add(text1);
 		p1.add(label2);
