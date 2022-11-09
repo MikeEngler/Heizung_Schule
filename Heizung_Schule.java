@@ -4,38 +4,42 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JFrame;
 
 import java.util.Arrays;
 
 // Main class
 public class Main extends JFrame{
 
-	
-// wtf ever
-private static final long serialVersionUID = 1L;
-
 // main method
 	public static void main( String[] args) {
-		new EasyWindow();
+		
+		
+		
+		
+		// erzeugt Fenster, setzt Dimensionen, sichtbarkeit sowie Titel und größenveränderung fest
+		JFrame window = new JFrame();
+		window.setSize(1280,720);
+		window.setTitle("Heizung");
+		window.setResizable(true);
+		window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		
+		
+		
+		
+		JPanel aussenrahmen = new JPanel();
+		aussenrahmen.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 5));
+		
+		//fügt Panel dem Fenster zu
+		window.add(aussenrahmen,BorderLayout.CENTER);
+		
+		Button testbutton = new Button("Button");
+		aussenrahmen.add(testbutton);
+		
+		
+		
+		window.setVisible(true);
 	}
-	
-	
-	//Konstruktor für das Anwendungsfenster
-	public EasyWindow() 
-	{
-		super("easy window");
-		
-	addWindowListener(new WindowAdapter() {
-		@Override
-		public void windowClosing(final WindowEvent e) {
-			exit();
-		}});
-	
-
-	// Container für 
-		Container con = getContentPane();
-		
-	//	GridLayout layout = new GridLayout(0, 2);
 		
 	// JPanel als Rahmen für das innere Panels mit Tabelle und Textfeldern etc bzw Buttons
 		JPanel rahmen = new JPanel(new GridLayout(0,1));
@@ -58,105 +62,6 @@ private static final long serialVersionUID = 1L;
 		JTextField text6 = new JTextField();
 		JTextField text7 = new JTextField();
 	
-	      
-
-//// Eindimensionaler Array zum füllend er Tabelle		
-//	    String[] title = {"Kundennummer", "Hausnummer", "Wohnungsnummer", "Zählerart", "Ablesedatum", "Messwerte"};
-//
-//// Multidimensionaler Array für den inhalt der Tabelle bzw seiner Daten	    
-//    String[][] data = {
-//	    		
-//	    		{"sjadk", "sjfdsk", "kjsd"},
-//	    		{"asdhjash", "shfdjh", "djfhsjd"},
-//	    		{"sdfjks", "sdjfchvsj", "jdsfkdfj"}
-//	    };	
 		
-		
-	    // JPanel wird erstellt um als Rahmen für die Labels und Textfelder zu dienen
-	    JPanel p1 = new JPanel(new GridLayout(0,2));
-		
-	   
-		// noch funktionsloser Button welcher später die eingetargen Daten aus der Tabelle entfernen soll
-	    JButton btn = new JButton("Datensatz löschen");
-		
-		// JTable Tabelle wird erstellt und mit den String Arrays  title und data gefüttert
-	//	JTable table = new JTable(data, title);
-		
-		//----------------- Test für neue Tabelle -----------------
-		
-		
-		JTable table;
-		
-		public table() {
-			
-			
-			setLayout(new FlowLayout());
-			
-			String[] coloumNames = {"Kundennummer", "Hausnummer", "Wohnungsnummer", "Zählerart", "Ablesedatum", "Messwerte"};
-			
-			Object[][] data = {	
-					
-					{"01", "7", "1", "Mechanisch", "01.01.2001", "zu Hoch"},
-					{"02", "34", "5", "Elektrisch", "21.11.1981", "undefiniert"},
-					
-					
-					
-			};
-			
-			
-			table = new Jtable(date, ColoumNames);
-			// opt benutzbar: getSize() als arg für hier
-			table.setPreferredScrollableViewportSize(new Dimenson(500,50));
-			table.setFillsViewportHeight(true);
-			
-			 // JScrollPane wird erstellt um als Rahmen für die Tabelle zu dienen
-		    JScrollPane p2 = new JScrollPane(table);
-		    add(scrollPane);
-		
-			
-		}
-		
-		
-
-		
-		
-		//--------------------------------------------------------
-		
-		
-		// Textfelder und dazugehörige Label werden in das JPanel p1 hinuzgefügt
-		p1.add(label1);
-		p1.add(text1);
-		p1.add(label2);
-		p1.add(text2);
-		p1.add(label3);
-		p1.add(text3);
-		p1.add(label4);
-		p1.add(text4);
-		p1.add(label5);
-		p1.add(text5);
-		p1.add(label6);
-		p1.add(text6);
-		p1.add(label7);
-		p1.add(text7);
-		
-		con.add(btn, BorderLayout.SOUTH);
-		
-		
-		con.add(rahmen, BorderLayout.CENTER);
-		
-		rahmen.add(p1);
-        rahmen.add(p2);	
-        
-       
-        
-	setSize(1280, 720);
-	setVisible(true);
-	settitle("Heizung");
-	}
-	
-	
-	
-	private void exit() {
-		System.exit(0);
-	}
+	// ende Main Class
 }
