@@ -7,17 +7,15 @@ import javax.swing.table.DefaultTableModel;
 
 import java.util.Arrays;
 
-/*
-  A easy window
- */
-public class EasyWindow extends JFrame{
+// Main class
+public class Main extends JFrame{
+
 	
+// wtf ever
 private static final long serialVersionUID = 1L;
 
-
-
-/** main*/
-	public static void main(final String[] args) {
+// main method
+	public static void main( String[] args) {
 		new EasyWindow();
 	}
 	
@@ -34,10 +32,12 @@ private static final long serialVersionUID = 1L;
 		}});
 	
 
-	// Container für was auch immer
+	// Container für 
 		Container con = getContentPane();
 		
 	//	GridLayout layout = new GridLayout(0, 2);
+		
+	// JPanel als Rahmen für das innere Panels mit Tabelle und Textfeldern etc bzw Buttons
 		JPanel rahmen = new JPanel(new GridLayout(0,1));
 		
 	// Label für die Textfelder
@@ -60,34 +60,64 @@ private static final long serialVersionUID = 1L;
 	
 	      
 
-// Eindimensionaler Array zum füllend er Tabelle		
-	    String[] title = {"Kundennummer", "Hausnummer", "Wohnungsnummer", "Zählerart", "Ablesedatum", "Messwerte"};
-
-// Multidimensionaler Array für den inhalt der Tabelle bzw seiner Daten	    
-	    String[][] data = {
-	    		
-	    		{"sjadk", "sjfdsk", "kjsd"},
-	    		{"asdhjash", "shfdjh", "djfhsjd"},
-	    		{"sdfjks", "sdjfchvsj", "jdsfkdfj"}
-	    };	
+//// Eindimensionaler Array zum füllend er Tabelle		
+//	    String[] title = {"Kundennummer", "Hausnummer", "Wohnungsnummer", "Zählerart", "Ablesedatum", "Messwerte"};
+//
+//// Multidimensionaler Array für den inhalt der Tabelle bzw seiner Daten	    
+//    String[][] data = {
+//	    		
+//	    		{"sjadk", "sjfdsk", "kjsd"},
+//	    		{"asdhjash", "shfdjh", "djfhsjd"},
+//	    		{"sdfjks", "sdjfchvsj", "jdsfkdfj"}
+//	    };	
 		
 		
 	    // JPanel wird erstellt um als Rahmen für die Labels und Textfelder zu dienen
 	    JPanel p1 = new JPanel(new GridLayout(0,2));
 		
-	    // JScrollPane wird erstellt um als Rahmen für die Tabelle zu dienen
-	    JScrollPane p2 = new JScrollPane();
-		
+	   
 		// noch funktionsloser Button welcher später die eingetargen Daten aus der Tabelle entfernen soll
 	    JButton btn = new JButton("Datensatz löschen");
 		
 		// JTable Tabelle wird erstellt und mit den String Arrays  title und data gefüttert
-		JTable table = new JTable(data, title);
+	//	JTable table = new JTable(data, title);
 		
 		//----------------- Test für neue Tabelle -----------------
 		
 		
+		JTable table;
 		
+		public table() {
+			
+			
+			setLayout(new FlowLayout());
+			
+			String[] coloumNames = {"Kundennummer", "Hausnummer", "Wohnungsnummer", "Zählerart", "Ablesedatum", "Messwerte"};
+			
+			Object[][] data = {	
+					
+					{"01", "7", "1", "Mechanisch", "01.01.2001", "zu Hoch"},
+					{"02", "34", "5", "Elektrisch", "21.11.1981", "undefiniert"},
+					
+					
+					
+			};
+			
+			
+			table = new Jtable(date, ColoumNames);
+			// opt benutzbar: getSize() als arg für hier
+			table.setPreferredScrollableViewportSize(new Dimenson(500,50));
+			table.setFillsViewportHeight(true);
+			
+			 // JScrollPane wird erstellt um als Rahmen für die Tabelle zu dienen
+		    JScrollPane p2 = new JScrollPane(table);
+		    add(scrollPane);
+		
+			
+		}
+		
+		
+
 		
 		
 		//--------------------------------------------------------
@@ -109,8 +139,6 @@ private static final long serialVersionUID = 1L;
 		p1.add(label7);
 		p1.add(text7);
 		
-		p2.add(table);
-		
 		con.add(btn, BorderLayout.SOUTH);
 		
 		
@@ -123,6 +151,7 @@ private static final long serialVersionUID = 1L;
         
 	setSize(1280, 720);
 	setVisible(true);
+	settitle("Heizung");
 	}
 	
 	
