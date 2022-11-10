@@ -8,6 +8,40 @@ import javax.swing.JFrame;
 
 import java.util.Arrays;
 
+
+
+
+public class table(){
+	
+	JTable table;
+	
+	public table() {
+		
+		setLayout(new FlowLayout());
+		
+		String [] coloum = {"Kundennummer", "Hausnummer", "Wohnungsnummer", "Zählerart", "Zählernummer", "Ablesedatum", "Messwerte"};
+		
+		Object [][] data = {
+				
+			{"ydjsdhf", "sdfk,cjsk"},
+			{"schjydx", "skjfck"},
+			{"dsjfhejksdhf", "sdajfch"},	
+		};
+		
+		
+		table = new JTable(data, coloum);
+		table.setPreferredScrollableViewportSize(new Dimension(500,50));
+		table.setFillsViewportHeight(true);
+		
+		JScrollPane tableholder = new JScrollPane(table);
+	}
+	
+	
+	
+	
+}
+
+
 // Main class
 public class Main extends JFrame{
 
@@ -27,24 +61,6 @@ public class Main extends JFrame{
 		
 		// JPanel als Rahmen für das innere Panels mit Tabelle und Textfeldern etc bzw Buttons
 		JPanel rahmen = new JPanel(new GridLayout(0,2));
-	
-		
-		
-		
-		// Tabelle ------------------------
-		
-		String [] coloum = {"Kundennummer", "Hausnummer", "Wohnungsnummer", "Zählerart", "Zählernummer", "Ablesedatum", "Messwerte"};
-		
-		String [][] data = {
-				
-			{"ydjsdhf", "sdfk,cjsk"},
-			{"schjydx", "skjfck"},
-			{"dsjfhejksdhf", "sdajfch"},	
-		};
-		
-		JTable table1 = new JTable(data, coloum);
-		
-		JScrollPane tableholder = new JScrollPane(table1);
 	
 		
 		
@@ -97,7 +113,9 @@ public class Main extends JFrame{
 			// ende Main Class
 		}
 	}
-		
+	
+
+
 	
 	
 		
