@@ -14,9 +14,6 @@ public class Main extends JFrame{
 // main method
 	public static void main( String[] args) {
 		
-		
-		
-		
 		// erzeugt Fenster, setzt Dimensionen, sichtbarkeit sowie Titel und größenveränderung fest
 		JFrame window = new JFrame();
 		window.setSize(1280,720);
@@ -25,41 +22,83 @@ public class Main extends JFrame{
 		window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
 		
-		JPanel aussenrahmen = new JPanel();
-		aussenrahmen.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 5));
+		JPanel aussenrahmen = new JPanel (new GridLayout(0,1));
+		//aussenrahmen.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 5));
 		
-		//fügt Panel dem Fenster zu
-		window.add(aussenrahmen,BorderLayout.CENTER);
-		
-		Button testbutton = new Button("Button");
-		aussenrahmen.add(testbutton);
-		
-		
-		
-		window.setVisible(true);
-	}
-		
-	// JPanel als Rahmen für das innere Panels mit Tabelle und Textfeldern etc bzw Buttons
-		JPanel rahmen = new JPanel(new GridLayout(0,1));
-		
-	// Label für die Textfelder
-		JLabel label1 = new JLabel("KNr.: ");
-		JLabel label2 = new JLabel("Hausnr.: ");
-		JLabel label3 = new JLabel("Wohnungsnr.: ");
-		JLabel label4 = new JLabel("Zählerart: ");
-		JLabel label5 = new JLabel("Zählernummer: ");
-		JLabel label6 = new JLabel("Ablesedatum: ");
-		JLabel label7 = new JLabel("Messwerte: ");
-		
-	// Textfelder zur Eingabe der Daten
-		JTextField text1 = new JTextField();
-		JTextField text2 = new JTextField();
-		JTextField text3 = new JTextField();
-		JTextField text4 = new JTextField();
-		JTextField text5 = new JTextField();
-		JTextField text6 = new JTextField();
-		JTextField text7 = new JTextField();
+		// JPanel als Rahmen für das innere Panels mit Tabelle und Textfeldern etc bzw Buttons
+		JPanel rahmen = new JPanel(new GridLayout(0,2));
 	
 		
-	// ende Main Class
-}
+		
+		
+		// Tabelle ------------------------
+		
+		String [] coloum = {"Kundennummer", "Hausnummer", "Wohnungsnummer", "Zählerart", "Zählernummer", "Ablesedatum", "Messwerte"};
+		
+		String [][] data = {
+				
+			{"ydjsdhf", "sdfk,cjsk"},
+			{"schjydx", "skjfck"},
+			{"dsjfhejksdhf", "sdajfch"},	
+		};
+		
+		JTable table1 = new JTable(data, coloum);
+		
+		JScrollPane tableholder = new JScrollPane(table1);
+	
+		
+		
+		//fügt Panel dem Fenster zu
+		window.add(aussenrahmen);
+		
+		aussenrahmen.add(rahmen);
+		aussenrahmen.add(tableholder, BorderLayout.SOUTH);
+	
+		
+		tableholder.add(table1);
+		
+		
+		// Label für die Textfelder
+				JLabel label1 = new JLabel("KNr.: ");
+				JLabel label2 = new JLabel("Hausnr.: ");
+				JLabel label3 = new JLabel("Wohnungsnr.: ");
+				JLabel label4 = new JLabel("Zählerart: ");
+				JLabel label5 = new JLabel("Zählernummer: ");
+				JLabel label6 = new JLabel("Ablesedatum: ");
+				JLabel label7 = new JLabel("Messwerte: ");
+				
+			// Textfelder zur Eingabe der Daten
+				JTextField text1 = new JTextField();
+				JTextField text2 = new JTextField();
+				JTextField text3 = new JTextField();
+				JTextField text4 = new JTextField();
+				JTextField text5 = new JTextField();
+				JTextField text6 = new JTextField();
+				JTextField text7 = new JTextField();
+
+			//Labels zu Panel 1 hinzufügen
+				rahmen.add(label1);
+				rahmen.add(text1);
+				rahmen.add(label2);
+				rahmen.add(text2);
+				rahmen.add(label3);
+				rahmen.add(text3);
+				rahmen.add(label4);
+				rahmen.add(text4);
+				rahmen.add(label5);
+				rahmen.add(text5);
+				rahmen.add(label6);
+				rahmen.add(text6);
+				rahmen.add(label7);
+				rahmen.add(text7);
+				
+
+				window.setVisible(true);
+			// ende Main Class
+		}
+	}
+		
+	
+	
+		
+	
