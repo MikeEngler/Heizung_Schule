@@ -3,48 +3,18 @@ package de.gc.gui.swing.simple;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.table.*;
 import javax.swing.JFrame;
 
+
 import java.util.Arrays;
-
-
-
-
-public class table(){
-	
-	JTable table;
-	
-	public table() {
-		
-		setLayout(new FlowLayout());
-		
-		String [] coloum = {"Kundennummer", "Hausnummer", "Wohnungsnummer", "Zählerart", "Zählernummer", "Ablesedatum", "Messwerte"};
-		
-		Object [][] data = {
-				
-			{"ydjsdhf", "sdfk,cjsk"},
-			{"schjydx", "skjfck"},
-			{"dsjfhejksdhf", "sdajfch"},	
-		};
-		
-		
-		table = new JTable(data, coloum);
-		table.setPreferredScrollableViewportSize(new Dimension(500,50));
-		table.setFillsViewportHeight(true);
-		
-		JScrollPane tableholder = new JScrollPane(table);
-	}
-	
-	
-	
-	
-}
 
 
 // Main class
 public class Main extends JFrame{
 
+
+	
 // main method
 	public static void main( String[] args) {
 		
@@ -57,21 +27,18 @@ public class Main extends JFrame{
 		
 		
 		JPanel aussenrahmen = new JPanel (new GridLayout(0,1));
-		//aussenrahmen.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 5));
+		
 		
 		// JPanel als Rahmen für das innere Panels mit Tabelle und Textfeldern etc bzw Buttons
 		JPanel rahmen = new JPanel(new GridLayout(0,2));
 	
-		
+
 		
 		//fügt Panel dem Fenster zu
 		window.add(aussenrahmen);
-		
 		aussenrahmen.add(rahmen);
-		aussenrahmen.add(tableholder, BorderLayout.SOUTH);
-	
 		
-		tableholder.add(table1);
+
 		
 		
 		// Label für die Textfelder
@@ -110,13 +77,50 @@ public class Main extends JFrame{
 				
 
 				window.setVisible(true);
-			// ende Main Class
+			// ende Main Methode
 		}
-	}
 	
+// Ende Main Class
+}
 
 
+
+public class JTable extends JComponent implements TableModelListener, Scrollable, TableColumnModelListener, ListSelectionListener, CellEditorListener, Accessible, RowSorterListener {
 	
 	
+	
+	
+	// Tabelle ---------------------------------------------
+	
+	// Arrays für Tabellendaten
+	String [] coloum = {"Kundennummer", "Hausnummer", "Wohnungsnummer", "Zählerart", "Zählernummer", "Ablesedatum", "Messwerte"};
+	
+	String [][] data = {
+			
+		{"ydjsdhf", "sdfk,cjsk"},
+		{"schjydx", "skjfck"},
+		{"dsjfhejksdhf", "sdajfch"},	
+	};
+	
+	// Tabelle selbst
+
+	
+	public TableModel dataModel = new AbstractTableModel(){
 		
+		public int getColoumnCount() {return 10;}
+		public int getRowCount() {return 10;}
+		public Object getValueAt(int row, int col) { return Integer(row*col);}
+	};
+	
+	
+	JTable	table = new JTable(dataModel);
+	JScrollPane tableholder = new JScrollPane(table);
+	
+
+	// einfügen der Tabelle 
+	tableholder.add(table);
+	main(String args[]).aussenrahmen.add(tableholder, BorderLayout.SOUTH);
+	
+	// Tabelle ende ------------------------------------------
+};	
 	
